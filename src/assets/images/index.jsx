@@ -4,7 +4,9 @@ import order from './order.png';
 import customer from './customer.png';
 import analytics from './analytic.png';
 import document from './doucement.png';
-
+import helpingimg from './helpimg.png';
+import settingimg from './settingimg.png';
+import logout from './logout.png';
 export const IMAGES = {
     dashboard,
     notification,
@@ -12,4 +14,7 @@ export const IMAGES = {
     customer,
     analytics,
     document,
+    helpingimg,
+    settingimg,
+    logout,
 };

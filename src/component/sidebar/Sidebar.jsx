@@ -3,21 +3,20 @@ import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { IMAGES } from "../../assets/images/index"; // Ensure the path is correct
-import FONTS from "../constant/Constant";
+import useMediaQuery from "@mui/material/useMediaQuery"; // For screen size detection
 
-const drawerWidth = 220; // Set width to 220px
-const drawerHeight = 750; // Set height to 750px
+import { IMAGES } from "../../assets/images/index"; // Image paths
+import FONTS from "../constant/Constant"; // Font constants
+
+const drawerWidth = 220;
+const drawerHeight = 750;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -30,12 +29,11 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("md"));
 
   const handleDrawerToggle = () => {
-    setOpen(!open); // Toggle open/close state
+    setOpen(!open);
   };
-
-  const isLargeScreen = window.innerWidth >= 900;
 
   return (
     <Box sx={{ display: "flex", width: "100%" }}>
@@ -48,19 +46,10 @@ export default function PersistentDrawerLeft() {
           width: "100%",
           padding: "5px 10px",
           backgroundColor: theme.palette.background.paper,
-          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.25)", // Adjust the shadow to be visible on the bottom
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.25)",
         }}
       >
-        <DrawerHeader
-          sx={{
-            fontFamily: FONTS.ALBERT,
-            width: "142px",
-            height: "36px",
-            padding: "16px",
-          }}
-        >
-          {" "}
-          {/* Corrected usage */}
+        <DrawerHeader sx={{ fontFamily: FONTS.ALBERT }}>
           <h1 style={{ fontSize: "24px" }}>
             swift<span style={{ color: "blue" }}>CRM</span>
           </h1>
@@ -72,34 +61,24 @@ export default function PersistentDrawerLeft() {
 
       {/* Sidebar Drawer */}
       <Drawer
-  sx={{
-    width: { xs: '190px', md: '220px' }, // Set 190px on small screens, 220px on larger screens
-    flexShrink: 0,
-    "& .MuiDrawer-paper": {
-      width: { xs: '190px', md: '220px' }, // Apply the same logic to the Drawer paper
-      height: "775px",
-      padding: "16px 32px",
-      backgroundColor: theme.palette.background.paper,
-      boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.14)", 
-    },
-    display: { xs: "block", md: "block" },
-  }}
-  variant={isLargeScreen ? "persistent" : "temporary"}
-  anchor="left"
-  open={open || isLargeScreen}
-  onClose={handleDrawerToggle}
->
-
-        <DrawerHeader
-          sx={{
-            fontFamily: FONTS.ALBERT,
-            width: "142px",
-            height: "36px",
-            padding: "16px",
-          }}
-        >
-          {" "}
-          {/* Corrected usage */}
+        sx={{
+          width: { xs: "190px", md: '220px' },
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: { xs: "190px", md: '220px' },
+   
+            height:{xs: "100%", md: '720px'},
+            padding: "16px 32px",
+            backgroundColor: theme.palette.background.paper,
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.14)",
+          },
+        }}
+        variant={isLargeScreen ? "persistent" : "temporary"}
+        anchor="left"
+        open={open || isLargeScreen}
+        onClose={handleDrawerToggle}
+      >
+        <DrawerHeader sx={{ fontFamily: FONTS.ALBERT }}>
           <h1 style={{ fontSize: "24px" }}>
             swift<span style={{ color: "#9a55ff" }}>CRM</span>
           </h1>
@@ -107,12 +86,10 @@ export default function PersistentDrawerLeft() {
 
         <List
           sx={{
-            width: drawerWidth,
             display: "flex",
             gap: "16px",
             flexDirection: "column",
             justifyContent: "center",
-            border: "none",
           }}
         >
           <DrawerHeader
@@ -123,84 +100,39 @@ export default function PersistentDrawerLeft() {
               color: "#6C757D",
             }}
           >
-            {" "}
-            {/* Corrected usage */}
             <p>GENERAL</p>
           </DrawerHeader>
 
+          {/* Sidebar Items */}
           {[
-            "Dashboard",
-            "Notifications",
-            "Customers",
-            "Order Overview",
-            "Analytics",
-            "Documents",
-          ].map((text, index) => (
-            <ListItem key={text} sx={{ display: "flex", padding: "0" }}>
+            { text: "Dashboard", icon: IMAGES.dashboard },
+            { text: "Notifications", icon: IMAGES.notification },
+            { text: "Customers", icon: IMAGES.customer },
+            { text: "Order Overview", icon: IMAGES.order },
+            { text: "Analytics", icon: IMAGES.analytics },
+            { text: "Documents", icon: IMAGES.document },
+          ].map((item, index) => (
+            <ListItem key={item.text} sx={{ display: "flex", padding: 0 }}>
               <ListItemButton
                 sx={{
                   width: "200px",
                   height: "44px",
-                  display: "flex",
                   padding: "8px 16px",
                   borderRadius: "4px",
+                  display: "flex",
                   gap: "8px",
-                  justifyContent: "center",
                   alignItems: "center",
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    display: "flex",
-                    minWidth: "14px",
-                    width: "14px",
-                  }}
-                >
-                  {index === 0 && (
-                    <img
-                      src={IMAGES.dashboard}
-                      alt="Dashboard"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 1 && (
-                    <img
-                      src={IMAGES.notification}
-                      alt="Notifications"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 2 && (
-                    <img
-                      src={IMAGES.customer}
-                      alt="Customers"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 3 && (
-                    <img
-                      src={IMAGES.order}
-                      alt="Order Overview"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 4 && (
-                    <img
-                      src={IMAGES.analytics}
-                      alt="Analytics"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 5 && (
-                    <img
-                      src={IMAGES.document}
-                      alt="Documents"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
+                <ListItemIcon sx={{ minWidth: "14px" }}>
+                  <img
+                    src={item.icon}
+                    alt={item.text}
+                    style={{ width: 14, height: 14 }}
+                  />
                 </ListItemIcon>
                 <ListItemText
-                  primary={text}
+                  primary={item.text}
                   primaryTypographyProps={{
                     fontSize: "16px",
                     fontWeight: "400",
@@ -213,103 +145,45 @@ export default function PersistentDrawerLeft() {
           ))}
         </List>
 
-  
-        <List
-          sx={{
-            width: drawerWidth,
-            display: "flex",
-            gap: "16px",
-            flexDirection: "column",
-            justifyContent: "center",
-            border: "none",
-          }}
-        >
+        {/* Support Section */}
+        <List sx={{ marginTop: "30px" }}>
           <DrawerHeader
             sx={{
               fontSize: "12px",
               fontWeight: "700",
               fontFamily: FONTS.ALBERT,
               color: "#6C757D",
+              paddingBottom: "16px",
             }}
           >
-            {" "}
-            {/* Corrected usage */}
-            <p>GENERAL</p>
+            <p>SUPPORT</p>
           </DrawerHeader>
 
           {[
-            "Dashboard",
-            "Notifications",
-            "Customers",
-            "Order Overview",
-            "Analytics",
-            "Documents",
-          ].map((text, index) => (
-            <ListItem key={text} sx={{ display: "flex", padding: "0" }}>
+            { text: "Help", icon: IMAGES.helpingimg },
+            { text: "Settings", icon: IMAGES.settingimg },
+          ].map((item, index) => (
+            <ListItem key={item.text} sx={{ display: "flex", padding: 0 }}>
               <ListItemButton
                 sx={{
                   width: "200px",
                   height: "44px",
-                  display: "flex",
                   padding: "8px 16px",
                   borderRadius: "4px",
+                  display: "flex",
                   gap: "8px",
-                  justifyContent: "center",
                   alignItems: "center",
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    display: "flex",
-                    minWidth: "14px",
-                    width: "14px",
-                  }}
-                >
-                  {index === 0 && (
-                    <img
-                      src={IMAGES.dashboard}
-                      alt="Dashboard"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 1 && (
-                    <img
-                      src={IMAGES.notification}
-                      alt="Notifications"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 2 && (
-                    <img
-                      src={IMAGES.customer}
-                      alt="Customers"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 3 && (
-                    <img
-                      src={IMAGES.order}
-                      alt="Order Overview"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 4 && (
-                    <img
-                      src={IMAGES.analytics}
-                      alt="Analytics"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
-                  {index === 5 && (
-                    <img
-                      src={IMAGES.document}
-                      alt="Documents"
-                      style={{ width: 14, height: 14 }}
-                    />
-                  )}
+                <ListItemIcon sx={{ minWidth: "14px" }}>
+                  <img
+                    src={item.icon}
+                    alt={item.text}
+                    style={{ width: 14, height: 14 }}
+                  />
                 </ListItemIcon>
                 <ListItemText
-                  primary={text}
+                  primary={item.text}
                   primaryTypographyProps={{
                     fontSize: "16px",
                     fontWeight: "400",
@@ -320,6 +194,40 @@ export default function PersistentDrawerLeft() {
               </ListItemButton>
             </ListItem>
           ))}
+        </List>
+
+        {/* Logout Section */}
+        <List sx={{ marginTop: "auto", paddingBottom: "40px" }}>
+          <ListItem sx={{ display: "flex", padding: 0 }}>
+            <ListItemButton
+              sx={{
+                width: "200px",
+                height: "44px",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                display: "flex",
+                gap: "8px",
+                alignItems: "center",
+              }}
+            >
+              <ListItemIcon sx={{ minWidth: "14px" }}>
+                <img
+                  src={IMAGES.logout}
+                  alt="Logout"
+                  style={{ width: 14, height: 14 }}
+                />
+              </ListItemIcon>
+              <ListItemText
+                primary="Logout"
+                primaryTypographyProps={{
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  fontFamily: FONTS.BARLOW,
+                  color: "#282c2f",
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
         </List>
       </Drawer>
     </Box>
