@@ -16,7 +16,6 @@ import { IMAGES } from "../../assets/images/index"; // Image paths
 import FONTS from "../constant/Constant"; // Font constants
 
 const drawerWidth = 220;
-const drawerHeight = 750;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -36,7 +35,7 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
-    <Box sx={{ display: "flex", width: "100%" }}>
+    <Box sx={{ display: "flex",  }}>
       {/* Header visible only on small screens */}
       <Box
         sx={{
@@ -47,13 +46,14 @@ export default function PersistentDrawerLeft() {
           padding: "5px 10px",
           backgroundColor: theme.palette.background.paper,
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.25)",
+          backgroundColor:"red"
         }}
       >
-        <DrawerHeader sx={{ fontFamily: FONTS.ALBERT }}>
+        {/* <DrawerHeader sx={{ fontFamily: FONTS.ALBERT }}>
           <h1 style={{ fontSize: "24px" }}>
             swift<span style={{ color: "blue" }}>CRM</span>
           </h1>
-        </DrawerHeader>
+        </DrawerHeader> */}
         <IconButton onClick={handleDrawerToggle}>
           {open ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
@@ -62,15 +62,20 @@ export default function PersistentDrawerLeft() {
       {/* Sidebar Drawer */}
       <Drawer
         sx={{
-          width: { xs: "190px", md: '220px' },
+          width: { xs: "190px", md: "220px" },
           flexShrink: 0,
           "& .MuiDrawer-paper": {
-            width: { xs: "190px", md: '220px' },
-   
-            height:{xs: "100%", md: '720px'},
-            padding: "16px 32px",
+            width: { xs: "190px", md: "220px" },
+            height: { xs: "100%", md: "720px" },
+            padding: "16px 30px",
             backgroundColor: theme.palette.background.paper,
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.14)",
+            overflowY: "auto", 
+            "::-webkit-scrollbar": {
+              display: "none",
+            },
+            "-ms-overflow-style": "none",
+            "scrollbar-width": "none", 
           },
         }}
         variant={isLargeScreen ? "persistent" : "temporary"}
@@ -103,7 +108,7 @@ export default function PersistentDrawerLeft() {
             <p>GENERAL</p>
           </DrawerHeader>
 
-          {/* Sidebar Items */}
+      
           {[
             { text: "Dashboard", icon: IMAGES.dashboard },
             { text: "Notifications", icon: IMAGES.notification },
@@ -111,7 +116,7 @@ export default function PersistentDrawerLeft() {
             { text: "Order Overview", icon: IMAGES.order },
             { text: "Analytics", icon: IMAGES.analytics },
             { text: "Documents", icon: IMAGES.document },
-          ].map((item, index) => (
+          ].map((item) => (
             <ListItem key={item.text} sx={{ display: "flex", padding: 0 }}>
               <ListItemButton
                 sx={{
@@ -145,7 +150,7 @@ export default function PersistentDrawerLeft() {
           ))}
         </List>
 
-        {/* Support Section */}
+   
         <List sx={{ marginTop: "30px" }}>
           <DrawerHeader
             sx={{
@@ -162,7 +167,7 @@ export default function PersistentDrawerLeft() {
           {[
             { text: "Help", icon: IMAGES.helpingimg },
             { text: "Settings", icon: IMAGES.settingimg },
-          ].map((item, index) => (
+          ].map((item) => (
             <ListItem key={item.text} sx={{ display: "flex", padding: 0 }}>
               <ListItemButton
                 sx={{
@@ -196,7 +201,7 @@ export default function PersistentDrawerLeft() {
           ))}
         </List>
 
-        {/* Logout Section */}
+     
         <List sx={{ marginTop: "auto", paddingBottom: "40px" }}>
           <ListItem sx={{ display: "flex", padding: 0 }}>
             <ListItemButton
