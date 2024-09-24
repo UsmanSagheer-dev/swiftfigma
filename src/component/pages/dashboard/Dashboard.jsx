@@ -1,59 +1,84 @@
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import React from "react";
-import PersistentDrawerRight from "../../sidebar/Sidebar";
+import PersistentDrawerLeft from "../../sidebar/Sidebar";
+import { useTheme } from "@mui/material/styles";
+import Header from "../../dashboardHeader/Header";
 
 function Dashboard() {
+  const theme = useTheme();
+  const isBelow869px = useMediaQuery("(max-width:869px)");
+
   return (
     <>
-    <Box sx={{ width:'100%',backgroundColor:'red',height:"100vh" }}>
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "start",
-        alignItems: "flex-start",
-        padding: {md: "40px 72px" },
-        background: "black",
-        flexDirection: { xs: "column", md: "row" }, // Column on small screens, row on large screens
-   
-        height: "100vh", // Full viewport height
-      
-        overflow: "hidden", // Disable scrolling
-      }}
-    >
-      {/* Sidebar */}
-      <Box 
-        sx={{
-          width: { xs: '100%', md: '15%' }, // 100% width on small screens, 15% on large screens
-          backgroundColor: "red",
-        }}
-      >
-        <PersistentDrawerRight />
-      </Box>
+      <Box sx={DashboardStyles.mainContainer}>
+        <Box
+          sx={{
+            ...DashboardStyles.wrapper,
+            flexDirection: isBelow869px ? "column" : "row",
+          }}
+        >
+          {/* Sidebar */}
+          <Box
+            sx={{
+              ...DashboardStyles.sidebar,
+              width: isBelow869px ? "100%" : "280px",
+              display: isBelow869px ? "block" : "flex", // Ensures the sidebar shows properly below 869px
+            }}
+          >
+            <PersistentDrawerLeft />
+          </Box>
 
-      {/* Content Area */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          width: { xs: '100%', md: "100%" }, // 100% width on small screens, remaining space on large screens
-          marginLeft: { xs: 0, md: "20px" }, // Margin on larger screens to create space from sidebar
-          backgroundColor: 'blue',
-          height: "100%", // Full height for the content area
-          overflowY: "auto", // Allow vertical scroll within the content area if content overflows
-        }}
-      >
-        <h1>Content for Dashboard</h1>
-        <p>
-          This is the content area. It will be displayed to the right of the
-          sidebar on larger screens, and below the sidebar on smaller screens.
-        </p>
+          {/* Content Area */}
+          <Box
+            sx={{
+              ...DashboardStyles.contentArea,
+              width: isBelow869px ? "100%" : "82%",
+              marginTop: isBelow869px ? 0 : "0", // Ensure content does not move down before sidebar is shown
+            }}
+          >
+            <Box sx={DashboardStyles.content}>
+              <Header />
+            </Box>
+            <Box>
+              <Box>Content Area</Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
-    </Box>
-    </Box>
-
-   
     </>
   );
 }
 
 export default Dashboard;
+
+export const DashboardStyles = {
+  mainContainer: {
+    width: "100%",
+    height: "auto",
+    backgroundColor: "blue",
+    margingTop: "100px",
+  },
+  wrapper: {
+    display: "flex",
+    width: "100%",
+    height: "auto",
+    gap: "29px",
+  },
+  sidebar: {
+    
+    height: "100%", 
+  },
+  contentArea: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "start",
+    height: "auto",
+
+  },
+  content: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+  },
+};

@@ -7,6 +7,7 @@ import document from './doucement.png';
 import helpingimg from './helpimg.png';
 import settingimg from './settingimg.png';
 import logout from './logout.png';
+import porfileimg from './profileimg.png';
 export const IMAGES = {
     dashboard,
     notification,
@@ -17,4 +18,5 @@ export const IMAGES = {
     helpingimg,
     settingimg,
     logout,
+    porfileimg,
 };
