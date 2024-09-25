@@ -5,6 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import Header from "../../dashboardHeader/Header";
 import OutlinedCard from "../../targetcard/TargetCard";
 import IncomeCard from "../../incomeCard/IncomeCard";
+import ProfitCard from "../../profitCard/ProfitCard";
 
 function Dashboard() {
   const theme = useTheme();
@@ -33,23 +34,30 @@ function Dashboard() {
         <Box
           sx={{
             ...DashboardStyles.contentArea,
-            width: isBelow869px ? "100%" : "calc(100% - 280px)", // Full width on smaller screens, minus sidebar width on larger screens
-            marginLeft: isBelow869px ? "0" : "310px", // Avoid content going behind the sidebar
+            width: isBelow869px ? "100%" : "calc(100% - 280px)", 
+            marginLeft: isBelow869px ? "0" : "310px", 
           }}
         >
           <Box sx={DashboardStyles.content}>
             <Header />
           </Box>
-          <Box >
-            <Box  sx={DashboardStyles.cardsetting}>
-              <Box>
-                <OutlinedCard/>
+          <Box sx={DashboardStyles.carddashboard}>
+            <Box sx={DashboardStyles.fisrtcard} >
+              <Box sx={DashboardStyles.cardsetting}>
+                <Box>
+                  <OutlinedCard />
+                </Box>
+                <Box>
+                  <IncomeCard />
+                </Box>
               </Box>
               <Box>
-                <IncomeCard/>
+                <ProfitCard />
               </Box>
             </Box>
-            <Box></Box>
+            <Box>
+           
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -82,9 +90,25 @@ export const DashboardStyles = {
 
     height: "100%",
   },
-  cardsetting:{
-display:'flex',
-alignItems: 'center',
-gap:'21px'
-  }
+  carddashboard:{
+    display: "flex",
+    justifyContent: "space-between",
+    width: "100%",
+
+    marginTop: '58px',
+    
+  },
+  fisrtcard:{
+
+    display: "flex",
+    flexDirection: "column",
+    gap:"20px",
+    justifyContent: "center",
+
+  },
+  cardsetting: {
+    display: "flex",
+    alignItems: "center",
+    gap: "21px",
+  },
 };

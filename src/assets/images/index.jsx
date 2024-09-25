@@ -8,6 +8,13 @@ import helpingimg from './helpimg.png';
 import settingimg from './settingimg.png';
 import logout from './logout.png';
 import porfileimg from './profileimg.png';
+import button from './button.png';
+import uparrow from './uparrow.png';
+import button2 from './button2.png'
+import graph from "./Graph.png"
+import graph2 from "./Graph2.png";
+import graph3 from "./Graph3.png";
+import button3 from './button3.png'
 export const IMAGES = {
     dashboard,
     notification,
@@ -19,4 +26,12 @@ export const IMAGES = {
     settingimg,
     logout,
     porfileimg,
+    button,
+    uparrow,
+    graph,
+    button2,
+    button3,
+    graph2,
+    graph3,
+ 
 };
