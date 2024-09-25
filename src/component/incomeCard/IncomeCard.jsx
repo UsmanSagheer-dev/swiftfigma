@@ -1,5 +1,7 @@
 import { Box } from "@mui/material";
 import IncomeFirstCard from "../incomefirstcard/IncomeFirstCard";
+import BarChart from "../barchart/Barchart";
+import CustomBarChart from "../barchart/Barchart";
 
 export default function IncomeCard() {
   return (
@@ -7,7 +9,9 @@ export default function IncomeCard() {
       <Box sx={Styles.first}>
         <IncomeFirstCard />
       </Box>
-      <Box sx={Styles.second}>skdfjh</Box>
+      <Box sx={Styles.second}>
+       <CustomBarChart/>
+      </Box>
     </Box>
   );
 }
