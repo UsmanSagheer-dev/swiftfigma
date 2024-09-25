@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, TextField, Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { COLOR } from '../constant/Constant';
 
 function SearchInput() {
   return (
@@ -16,9 +17,8 @@ function SearchInput() {
       {/* Search Button */}
       <Button
         variant="contained"
-        color="primary"
         sx={styles.searchButton}
-        startIcon={<SearchIcon />} 
+        startIcon={<SearchIcon />}
       >
         Search
       </Button>
@@ -32,14 +32,14 @@ const styles = {
   searchContainer: {
     display: "flex",
     alignItems: "center",
-   
   },
   searchInput: {
-    width: "300px", 
+    width: { xs: "300px", md: "auto" }, // 300px for small screens, auto for md and larger
     height: "38px",
   },
   searchButton: {
-    height: "38px", // Adjust height to match input
-    textTransform: "none", // Ensures 'Search' text is not all uppercase
+    height: "38px",
+    backgroundColor: COLOR.TEXT,
+    textTransform: "none",
   },
 };

@@ -4,13 +4,13 @@ const FONTS = {
 };
 
 const COLOR = {
-  PRIMARY: '#9A55FF',
+  PRIMARY: '#6C757D',
   SECONDARY: '#34A853',
   TERTIARY: '#FBBC05',
   FOURTHARY: '#EA4335',
   ACCENT: '#3F51B5',
   BACKGROUND: '#F5F5F5',
-  TEXT: '#9A55FF', // This will be applied to your text
+  TEXT: '#9A55FF', 
   ERROR: '#FF0000',
   WARNING: '#FFA726',
   SUCCESS: '#4CAF50',
