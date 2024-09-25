@@ -51,7 +51,7 @@ function Dashboard() {
                   <IncomeCard />
                 </Box>
               </Box>
-              <Box>
+              <Box sx={{width:'100%'}}>
                 <ProfitCard />
               </Box>
             </Box>

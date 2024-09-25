@@ -15,6 +15,7 @@ import graph from "./Graph.png"
 import graph2 from "./Graph2.png";
 import graph3 from "./Graph3.png";
 import button3 from './button3.png'
+import button4 from './button4.png';
 export const IMAGES = {
     dashboard,
     notification,
@@ -33,5 +34,6 @@ export const IMAGES = {
     button3,
     graph2,
     graph3,
+    button4,
  
 };
