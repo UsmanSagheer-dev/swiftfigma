@@ -212,7 +212,7 @@ export const DrawerStyles = {
     marginTop: "30px",
   },
   logoutList: {
-    marginTop: "auto",
+
     paddingBottom: "40px",
   },
 };

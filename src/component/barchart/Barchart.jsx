@@ -22,13 +22,13 @@ ChartJS.register(
 
 const BarChart = () => {
   const data = {
-    labels: ['May', 'Jun', 'Jul'], // Y-axis labels (Months)
+    labels: ['Jul', 'Jun', 'May'], // Y-axis labels (Months)
     datasets: [
       {
         label: 'Data', // Label for the dataset
-        data: [3, 4, 6], // Data values corresponding to the months
-        backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)', 'rgba(153, 102, 255, 0.8)'], // Colors for bars
-        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(153, 102, 255, 1)'],
+        data: [6, 4, 3], // Data values corresponding to the months
+        backgroundColor: ['rgba(153, 102, 255, 0.8)', 'rgba(54, 162, 235, 0.8)', 'rgba(255, 99, 132, 0.8)'], // Change Jul to purple
+        borderColor: ['rgba(153, 102, 255, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
         borderWidth: 1
       }
     ]

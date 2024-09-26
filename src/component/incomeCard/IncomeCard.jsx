@@ -17,15 +17,15 @@ export default function IncomeCard() {
 }
 const Styles = {
   container: {
-    width: "561px",
+    width: "565px",
     height: "240px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "24px 16px",
-    backgroundColor: "#f5f5f5",
+    padding: "24px 22px",
+
     borderRadius: "4px",
-    boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.1)",
+    border:" 0.75px solid #00000020",
     cursor: "pointer",
     transition: "background-color 0.3s ease-in-out",
     gap: "12px",

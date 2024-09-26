@@ -6,6 +6,7 @@ import Header from "../../dashboardHeader/Header";
 import OutlinedCard from "../../targetcard/TargetCard";
 import IncomeCard from "../../incomeCard/IncomeCard";
 import ProfitCard from "../../profitCard/ProfitCard";
+import ProducatCard from "../../productsCard/ProducatCard";
 
 function Dashboard() {
   const theme = useTheme();
@@ -56,7 +57,7 @@ function Dashboard() {
               </Box>
             </Box>
             <Box>
-           
+           <ProducatCard/>
             </Box>
           </Box>
         </Box>
@@ -72,10 +73,11 @@ export const DashboardStyles = {
     display: "flex",
     width: "100%",
     gap: "29px",
+    backgroundColor:'red'
   },
   sidebar: {
     backgroundColor: "blue",
-    height: { xs: "auto", md: "100vh" },
+    // height: { xs: "auto", md: "100vh" },
   },
   contentArea: {
     display: "flex",
@@ -92,7 +94,7 @@ export const DashboardStyles = {
   },
   carddashboard:{
     display: "flex",
-    justifyContent: "space-between",
+  
     width: "100%",
 
     marginTop: '58px',
