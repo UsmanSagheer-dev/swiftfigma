@@ -40,58 +40,77 @@ export default function ProfitCards() {
   ];
 
   return (
-    <Box sx={{ display: "flex", gap: "17px", width: "780px" }}>
-      {cardData.map((card, index) => (
-        <Box
-          key={index}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            backgroundColor: "",
-            borderRadius: "10px",
-            width: "230px",
-            height: "auto",
-            padding: "24px 16px 20px 16px",
-            border: "0.75px solid #00000020",
-          }}
-        >
-          {/* Icon Image */}
-          <img
-            src={card.iconimage}
-            alt="icon"
-            style={{ marginBottom: "10px", width: "28.5px", height: "28.5px" }}
-          />
-
-          <Typography
-            variant="h6"
-            component="div"
+    <Box
+      sx={{
+        overflowX: { xs: "hidden", md: "hidden" }, // Auto scroll on small screens, hidden on medium+
+        whiteSpace: "nowrap", // Prevent wrapping
+        padding: "10px",
+        width: "100%",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          gap: "17px",
+          overflowX: { xs: "auto", md: "auto" }, // Keep scroll enabled on large screens
+          scrollbarWidth: "thin", // For Firefox
+          "&::-webkit-scrollbar": { height: "8px" }, // For Webkit (Chrome, Safari)
+          "&::-webkit-scrollbar-thumb": { backgroundColor: "#888" }, // Scroll thumb color
+        }}
+      >
+        {cardData.map((card, index) => (
+          <Box
+            key={index}
             sx={{
-              marginBottom: "20px",
-              fontFamily: FONTS.BARLOW,
-              color: "#6C757D",
-              fontSize: "15px",
+              display: "flex",
+              flexDirection: "column",
+              backgroundColor: "", // Add background if needed
+              borderRadius: "10px",
+              width: { xs: "", md: "230px" }, // Full width on small screens
+              height: "auto",
+              padding: "24px 16px 20px 16px",
+              border: "0.75px solid #00000020",
+              minWidth: { xs: "230px", md: "230px" }, // Full width on small screens, fixed on large screens
             }}
           >
-            {card.title}
-          </Typography>
+            {/* Icon Image */}
+            <img
+              src={card.iconimage}
+              alt="icon"
+              style={{ marginBottom: "10px", width: "28.5px", height: "28.5px" }}
+            />
 
-          {/* Using PriceCard Component */}
-          <PriceCard
-            para={card.para}
-            arrowDirection={card.arrowDirection}
-            price={card.price}
-            background={card.background}
-            color={card.color}
-          />
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                marginBottom: "20px",
+                fontFamily: FONTS.BARLOW,
+                color: "#6C757D",
+                fontSize: "15px",
+              }}
+            >
+              {card.title}
+            </Typography>
 
-          {/* Graph Image at the Bottom */}
-          <img
-            src={card.graphimg}
-            alt="graph-img"
-            style={{ height: "77px", marginTop: "12px" }}
-          />
-        </Box>
-      ))}
+            {/* Using PriceCard Component */}
+            <PriceCard
+              para={card.para}
+              arrowDirection={card.arrowDirection}
+              price={card.price}
+              background={card.background}
+              color={card.color}
+            />
+
+            {/* Graph Image at the Bottom */}
+            <img
+              src={card.graphimg}
+              alt="graph-img"
+              style={{ height: "77px", marginTop: "12px" }}
+            />
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 }

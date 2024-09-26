@@ -35,15 +35,15 @@ function Dashboard() {
         <Box
           sx={{
             ...DashboardStyles.contentArea,
-            width: isBelow869px ? "100%" : "calc(100% - 280px)", 
-            marginLeft: isBelow869px ? "0" : "310px", 
+            width: isBelow869px ? "100%" : "calc(100% - 280px)",
+            marginLeft: isBelow869px ? "0" : "310px",
           }}
         >
           <Box sx={DashboardStyles.content}>
             <Header />
           </Box>
           <Box sx={DashboardStyles.carddashboard}>
-            <Box sx={DashboardStyles.fisrtcard} >
+            <Box sx={DashboardStyles.fisrtcard}>
               <Box sx={DashboardStyles.cardsetting}>
                 <Box>
                   <OutlinedCard />
@@ -52,12 +52,21 @@ function Dashboard() {
                   <IncomeCard />
                 </Box>
               </Box>
-              <Box sx={{width:'100%'}}>
-                <ProfitCard />
+              <Box backgroundColor={"gray"} overflow={'hidden'} sx={{width:{xs:'320px',md:"1000px"}}}>
+                <Box
+                  sx={{
+                    overflowX: "hidden", // Enable horizontal scrolling
+                    whiteSpace: "nowrap", // Prevent wrapping to the next line
+                   
+                  }}
+                >
+                  <ProfitCard />
+                </Box>
               </Box>
             </Box>
-            <Box>
-           <ProducatCard/>
+
+            <Box sx={DashboardStyles.producat}>
+              <ProducatCard heading={"Best Selling Products"} />
             </Box>
           </Box>
         </Box>
@@ -73,7 +82,8 @@ export const DashboardStyles = {
     display: "flex",
     width: "100%",
     gap: "29px",
-    backgroundColor:'red'
+    flexDirection: "column", // Ensure cards stack vertically on smaller screens
+    alignItems: "center", // Center the cards horizontally
   },
   sidebar: {
     backgroundColor: "blue",
@@ -85,32 +95,63 @@ export const DashboardStyles = {
     justifyContent: "start",
     marginTop: "50px",
     height: "auto",
-    overFlow: "scroll",
+
+    "@media (max-width: 900px)": {
+      flexDirection: "column",
+    },
   },
   content: {
     display: "flex",
-
-    height: "100%",
-  },
-  carddashboard:{
-    display: "flex",
-  
     width: "100%",
-
-    marginTop: '58px',
-    
+    justifyContent: "center", // Center content horizontally
   },
-  fisrtcard:{
+  carddashboard: {
+    display: "flex",
 
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: "25px",
+    width: "100%",
+    marginTop: "58px",
+    "@media (max-width: 900px)": {
+      gap: "15px",
+      // alignItems: "center",
+    },
+  },
+  fisrtcard: {
     display: "flex",
     flexDirection: "column",
-    gap:"20px",
-    justifyContent: "center",
-
-  },
-  cardsetting: {
-    display: "flex",
     alignItems: "center",
+    gap: "20px",
+    justifyContent: "start",
+    // No need for overflowX or alignItems here since we handle that in ProfitCard container
+    "@media (max-width: 900px)": {},
+  },
+
+  cardsetting: {
+    width: "100%",
+    display: "flex",
+
     gap: "21px",
+
+    "@media (max-width: 900px)": {
+      flexWrap: "wrap",
+      width: "100%",
+      justifyContent: "center", // Center cards on small screens
+      gap: "10px",
+    },
+  },
+
+  producat: {
+    width: "285px",
+    height: "auto",
+    backgroundColor: "#fff",
+    padding: "10px 16px",
+    borderRadius: "10px",
+    border: "0.75px solid #00000020",
+
+    "@media (max-width: 900px)": {
+      width: "100%",
+    },
   },
 };

@@ -16,6 +16,10 @@ import graph2 from "./Graph2.png";
 import graph3 from "./Graph3.png";
 import button3 from './button3.png'
 import button4 from './button4.png';
+import bowl from './bowl.png'
+import cup from './cup.png'
+import vase from './vase.png'
+import woodenbowl from './wodenbowel.png'
 export const IMAGES = {
     dashboard,
     notification,
@@ -35,5 +39,10 @@ export const IMAGES = {
     graph2,
     graph3,
     button4,
+    bowl,
+    cup,
+    vase,
+    woodenbowl
+
  
 };
