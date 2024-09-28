@@ -10,10 +10,22 @@ const PriceCard = ({ para, arrowDirection, price, background, color }) => {
         justifyContent: "",
         alignItems: "center",
         width: "100%",
-   gap:'30px'
+        gap: '30px'
       }}
     >
-      <Typography variant="body1" sx={{ fontSize: "24px",fontWeight:'700',width:'140px' }}>
+      <Typography
+        variant="body1"
+        sx={{
+          fontSize: "24px",
+          fontWeight: '700',
+          width: '140px',
+          backgroundColor: 'white',
+          "@media (max-width:1194px) ":{
+            fontSize:"17px",
+            width:"auto",
+          }
+        }}
+      >
         {para}
       </Typography>
 

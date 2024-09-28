@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
+import { Box } from '@mui/material';
 
 // Register necessary components
 ChartJS.register(
@@ -74,7 +75,26 @@ const BarChart = () => {
     maintainAspectRatio: false // Allow the chart to fill its container
   };
 
-  return <Bar data={data} options={options} />;
+  return (
+    <Box sx={styles.chartcontainer}>
+      <Bar data={data} options={options} />
+    </Box>
+  );
 };
 
 export default BarChart;
+
+const styles={
+  chartcontainer:{
+    width:"250px",
+    height: "192px",
+   "@media (max-width: 1194px) ":{
+    width:"200px",
+    height: "200px"
+   },
+   "@media (max-width: 560px) ":{
+    width:"auto",
+    height: "200px"
+   }
+  }
+}

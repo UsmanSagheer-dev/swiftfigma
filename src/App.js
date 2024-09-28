@@ -1,13 +1,14 @@
-
-import './App.css';
-import { Box } from '@mui/material';
-import Dashboard from './component/pages/dashboard/Dashboard';
+import "./App.css";
+import { Box } from "@mui/material";
+import Dashboard from "./component/pages/dashboard/Dashboard";
 
 function App() {
   return (
- <Box >
-  <Dashboard/>
- </Box>
+    <>
+      <div className="dashboard">
+        <Dashboard />
+      </div>
+    </>
   );
 }
 

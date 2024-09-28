@@ -4,23 +4,28 @@ import Card from "@mui/material/Card";
 import { Gauge } from "@mui/x-charts/Gauge";
 import Typography from "@mui/material/Typography";
 
-// Styles object with all the styles centralized
 const Styles = {
   card: {
     display: "flex",
-    flexDirection: "column", // Default column direction
+    flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
     textAlign: "center",
     background: "linear-gradient(336.19deg, #D355FF 0%, #9A55FF 57.79%)",
     padding: "24px 16px",
-    width: "160px", // Fixed width for large screens
+    width: "160px",
     height: "240px",
     borderRadius: "10px",
-    "@media (max-width: 900px)": {
-      width: "100%", // Full width for small screens
-      flexDirection: "row", // Change to row direction
-      height: "auto", // Adjust height for wrapping content
-     
+    "@media (max-width: 1194px)": {
+      width: "124px",
+      height: "196px",
+    },
+    "@media (max-width: 670px)": {
+      flexDirection: "row",
+      marginLeft: "11px",
+      width: "100%",
+      height: "196px",
+      gap: "50px",
     },
   },
   gaugeContainer: {
@@ -30,10 +35,14 @@ const Styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "red",
     color: "transparent",
+    "@media (max-width: 1194px)": {
+      width: 40,
+      height: 10,
+    },
   },
   gaugeTextOverlay: {
-  
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -42,7 +51,6 @@ const Styles = {
     transform: "translate(-50%, -50%)",
     fontSize: "18px",
     fontWeight: "bold",
-    color: "white",
   },
   textContainer: {
     display: "flex",
@@ -67,7 +75,6 @@ export default function OutlinedCard() {
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         width: "100%",
-        justifyContent: "center",
       }}
     >
       <Card variant="outlined" sx={Styles.card}>
@@ -80,7 +87,7 @@ export default function OutlinedCard() {
             innerRadius="70%"
             strokeWidth="5"
             outerRadius="100%"
-            disableAxisListener="true"
+            arcColor="white" // Change the blue arc to white
           />
         </div>
 

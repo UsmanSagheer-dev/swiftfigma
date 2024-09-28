@@ -157,7 +157,7 @@ export const DrawerStyles = {
     width: { xs: "190px", md: "150px" },
     flexShrink: 0,
     "& .MuiDrawer-paper": {
-      width: { xs: "auto", md: "220px" },
+      width:'220px',
       height: { xs: "100vh", md: "100vh" },
       padding: "16px 30px",
       backgroundColor: theme.palette.background.paper,
@@ -166,8 +166,10 @@ export const DrawerStyles = {
       "::-webkit-scrollbar": { display: "none" },
       "-ms-overflow-style": "none",
       "scrollbar-width": "none",
-      // marginLeft: { xs: "0px", md: "20px" },
-      // marginTop: { xs: "0px", md: "40px" },
+      "@media  (max-width:1194px)": {
+width:"190px",
+      }
+      
     },
   }),
   generalList: {

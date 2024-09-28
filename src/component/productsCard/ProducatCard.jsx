@@ -3,24 +3,34 @@ import React from "react";
 import BowlCard from "../bowlcard/BowlCard";
 import { IMAGES } from "../../assets/images";
 
-// Styles object to centralize all the styles
 const styles = {
   container: {
     margin: "0",
     padding: "0 10px",
+    maxWidth: "285px",
+    width: "100%",
+    height: "auto",
+    backgroundColor: "#fff",
+    padding: "10px 16px",
+    borderRadius: "10px",
+    border: "0.75px solid #00000020",
+
+    "@media (max-width: 560px)": {
+width: "100%",
+
+    },
   },
   headingText: {
     margin: 0,
   },
   cardWrapper: {
-    width:'100%',
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     marginTop: "12px",
 
-  
   },
   cardItem: {
     marginBottom: 2,
@@ -28,7 +38,6 @@ const styles = {
 };
 
 export default function ProductCard({ heading }) {
-  // Information array for the bowl cards
   const information = [
     {
       image: IMAGES.bowl,
@@ -66,10 +75,8 @@ export default function ProductCard({ heading }) {
         <Divider />
 
         <Box sx={styles.cardWrapper}>
-          {/* Mapping over the information array to render multiple BowlCard components */}
           {information.map((item, index) => (
             <Box key={index} sx={styles.cardItem}>
-              {/* Passing all the props to BowlCard */}
               <BowlCard {...item} />
             </Box>
           ))}

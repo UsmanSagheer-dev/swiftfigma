@@ -6,7 +6,7 @@ import { COLOR } from '../constant/Constant';
 function SearchInput() {
   return (
     <Box sx={styles.searchContainer}>
-      {/* Search Input */}
+     
       <TextField
         variant="outlined"
         placeholder="Search..."
@@ -14,7 +14,6 @@ function SearchInput() {
         sx={styles.searchInput}
       />
 
-      {/* Search Button */}
       <Button
         variant="contained"
         sx={styles.searchButton}
@@ -34,7 +33,7 @@ const styles = {
     alignItems: "center",
   },
   searchInput: {
-    width: { xs: "300px", md: "auto" }, // 300px for small screens, auto for md and larger
+    width: { xs: "auto", md: "auto" }, 
     height: "38px",
   },
   searchButton: {

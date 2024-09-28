@@ -40,22 +40,20 @@ export default function ProfitCards() {
   ];
 
   return (
-    <Box
-      sx={{
-        overflowX: { xs: "hidden", md: "hidden" }, // Auto scroll on small screens, hidden on medium+
-        whiteSpace: "nowrap", // Prevent wrapping
-        padding: "10px",
-        width: "100%",
-      }}
-    >
+   
       <Box
         sx={{
           display: "flex",
           gap: "17px",
-          overflowX: { xs: "auto", md: "auto" }, // Keep scroll enabled on large screens
-          scrollbarWidth: "thin", // For Firefox
-          "&::-webkit-scrollbar": { height: "8px" }, // For Webkit (Chrome, Safari)
-          "&::-webkit-scrollbar-thumb": { backgroundColor: "#888" }, // Scroll thumb color
+         maxWidth:"840px",
+          "@media (max-width:1194px)": {
+            width: "560px",
+            gap:"12px"
+          },
+          overflowX: { xs: "auto", md: "auto" },
+          scrollbarWidth: "thin",
+          "&::-webkit-scrollbar": { height: "8px" },
+          "&::-webkit-scrollbar-thumb": { backgroundColor: "#888" },
         }}
       >
         {cardData.map((card, index) => (
@@ -64,20 +62,26 @@ export default function ProfitCards() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              backgroundColor: "", // Add background if needed
+              backgroundColor: "white",
               borderRadius: "10px",
-              width: { xs: "", md: "230px" }, // Full width on small screens
+              width: "230px",
               height: "auto",
               padding: "24px 16px 20px 16px",
               border: "0.75px solid #00000020",
-              minWidth: { xs: "230px", md: "230px" }, // Full width on small screens, fixed on large screens
+              "@media (max-width:1194px)": {
+                width: "180px",
+              },
             }}
           >
             {/* Icon Image */}
             <img
               src={card.iconimage}
               alt="icon"
-              style={{ marginBottom: "10px", width: "28.5px", height: "28.5px" }}
+              style={{
+                marginBottom: "10px",
+                width: "28.5px",
+                height: "28.5px",
+              }}
             />
 
             <Typography
@@ -111,6 +115,6 @@ export default function ProfitCards() {
           </Box>
         ))}
       </Box>
-    </Box>
+  
   );
 }

@@ -3,6 +3,7 @@ import React from "react";
 import PriceCard from "../pricecard/PriceCard"; // Ensure the path is correct
 import { COLOR, FONTS } from "../constant/Constant"; // Import colors and fonts
 import { IMAGES } from "../../assets/images";
+
 const IncomeFirstCard = () => {
   const heading = "Monthly Income"; // Example heading
 
@@ -17,30 +18,8 @@ const IncomeFirstCard = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-          padding: "0",
-          margin: "0",
-        }}
-      >
-        {/* Adjust Typography to remove any unwanted padding/margins */}
-        <Typography
-          sx={{
-            fontFamily: FONTS.BARLOW,
-            fontSize: "14px",
-            fontWeight: "600",
-
-            display: "flex",
-            justifyContent: "flex-start",
-            padding: "1px 0", // Set padding as needed
-            margin: 0, // Remove default margin if any
-          }}
-        >
-          {heading}
-        </Typography>
+      <Box sx={Styles.container}>
+        <Typography sx={Styles.heading}>{heading}</Typography>
 
         <Box sx={Styles.price}>
           <PriceCard
@@ -55,34 +34,27 @@ const IncomeFirstCard = () => {
           <p>Compared to the previous month</p>
         </Typography>
         <Divider />
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Box sx={{ marginRight: "10px" }}>
+        <Box sx={Styles.imageContainer}>
+          <Box sx={Styles.imageBox}>
             <img src={IMAGES.button4} alt="" />
           </Box>
 
-          {/* Text Section */}
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-
-              margin: "24px 0",
-              padding: "0",
-            }}
-          >
-          
-            <Typography
-              component="div"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "5px",
-                h4: { margin: 0, padding: 0 ,fontFamily:FONTS.BARLOW,fontSize:"15px"}, 
-                p: { margin: 0, padding: 0 ,}, 
-              }}
-            >
+          <Box sx={Styles.textSection}>
+            <Typography component="div" sx={Styles.textContent}>
               <h4 style={{ height: "10px" }}>Accounting</h4>
-              <p style={{color:COLOR.PRIMARY}}>July 1, 2023 - July 31, 2023</p>
+              <Typography
+                component="p"
+                sx={{
+                  color: COLOR.PRIMARY,
+
+                  fontSize: "14px", // Default font size
+                  "@media (max-width: 1194px)": {
+                    fontSize: "15px", // Font size for smaller screens
+                  },
+                }}
+              >
+                July 1, 2023 - July 31, 2023
+              </Typography>
             </Typography>
           </Box>
         </Box>
@@ -94,11 +66,32 @@ const IncomeFirstCard = () => {
 export default IncomeFirstCard;
 
 const Styles = {
-  price: {
-    marginTop: "17px",
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "start",
+    width: "auto",
+    padding: "19px 13px",
+    margin: "0",
+
+    height: "auto",
+    "@media (max-width: 1194px)": {
+      height: "157px",
+    },
   },
+  heading: {
+    fontFamily: FONTS.BARLOW,
+    fontSize: "14px",
+    fontWeight: "600",
+    display: "flex",
+    justifyContent: "flex-start",
+    padding: "0 0 10px 0",
+    "@media (max-width: 1194px)": {
+      padding: "0",
+    },
+  },
+  price: {},
   compare: {
-    marginTop: "17px",
     height: "25px",
     padding: "0",
     display: "flex",
@@ -106,5 +99,43 @@ const Styles = {
     alignItems: "center",
     fontSize: "14px",
     color: COLOR.PRIMARY,
+    "@media (max-width: 1200px)": {
+      marginTop: "px",
+    },
+  },
+  imageContainer: {
+    display: "flex",
+    alignItems: "center",
+  },
+  imageBox: {
+    marginRight: "10px",
+  },
+  textSection: {
+    display: "flex",
+    flexDirection: "column",
+    marginTop: "17px",
+    padding: "0",
+    "@media (max-width: 1194px)": {
+      marginTop: "0",
+    },
+  },
+  textContent: {
+    display: "flex",
+    flexDirection: "column",
+
+    gap: "20px",
+    "@media (max-width: 1200px)": {
+      gap: "5px",
+    },
+    "@media (max-width: 670px)": {
+      gap: "15px",
+    },
+    h4: {
+      margin: 0,
+      padding: 0,
+      fontFamily: FONTS.BARLOW,
+      fontSize: "15px",
+    },
+    p: { margin: 0, padding: 0 },
   },
 };
