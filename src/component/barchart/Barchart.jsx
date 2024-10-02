@@ -1,4 +1,5 @@
 import React from 'react';
+import { styles     } from './barchartStyles';
 import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -10,8 +11,6 @@ import {
   Legend
 } from 'chart.js';
 import { Box } from '@mui/material';
-
-// Register necessary components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -84,17 +83,3 @@ const BarChart = () => {
 
 export default BarChart;
 
-const styles={
-  chartcontainer:{
-    width:"250px",
-    height: "192px",
-   "@media (max-width: 1194px) ":{
-    width:"200px",
-    height: "200px"
-   },
-   "@media (max-width: 560px) ":{
-    width:"auto",
-    height: "200px"
-   }
-  }
-}

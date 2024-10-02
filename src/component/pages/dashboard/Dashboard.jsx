@@ -8,6 +8,11 @@ import IncomeCard from "../../incomeCard/IncomeCard";
 import ProfitCard from "../../profitCard/ProfitCard";
 import ProducatCard from "../../productsCard/ProducatCard";
 import { DashboardStyles } from "./dashboardStyle";
+import Footer from "../../footer/Footer";
+import NewCustomerCard from "../../newCustomercard/NewCustomerCard";
+import MyComponent from "../../googlemap/googleMap"
+
+
 function Dashboard() {
   const theme = useTheme();
   const isBelow869px = useMediaQuery("(max-width:1194px)");
@@ -21,7 +26,6 @@ function Dashboard() {
           flexDirection: isBelow869px ? "column" : "row",
         }}
       >
-        {/* Sidebar */}
         <Box
           sx={{
             ...DashboardStyles.sidebar,
@@ -37,7 +41,7 @@ function Dashboard() {
           sx={{
             ...DashboardStyles.contentArea,
             width: isBelow869px ? "100%" : "calc(100% - 280px)",
-            marginLeft: isBelow850px ? "px" : isBelow869px ? "280px" : "310px", // Adjust margin based on screen size
+            marginLeft: isBelow850px ? "px" : isBelow869px ? "280px" : "310px",
           }}
         >
           <Box sx={DashboardStyles.content}>
@@ -49,7 +53,7 @@ function Dashboard() {
                 <Box>
                   <OutlinedCard />
                 </Box>
-                <Box overflow={'hidden'} width={'100%'}>
+                <Box overflow={"hidden"} width={"100%"}>
                   <IncomeCard />
                 </Box>
               </Box>
@@ -62,6 +66,11 @@ function Dashboard() {
               <ProducatCard heading={"Best Selling Products"} />
             </Box>
           </Box>
+          <Box display={"flex"}>
+            <Box>
+             <MyComponent/>
+            </Box>
+          </Box>
         </Box>
       </Box>
     </>
@@ -69,5 +78,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-
-

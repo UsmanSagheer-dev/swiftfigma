@@ -35,7 +35,6 @@ const Styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "red",
     color: "transparent",
     "@media (max-width: 1194px)": {
       width: 40,
@@ -87,7 +86,7 @@ export default function OutlinedCard() {
             innerRadius="70%"
             strokeWidth="5"
             outerRadius="100%"
-            arcColor="white" // Change the blue arc to white
+            arcColor="white" 
           />
         </div>
 

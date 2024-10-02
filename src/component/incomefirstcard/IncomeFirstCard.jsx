@@ -106,14 +106,17 @@ const Styles = {
   imageContainer: {
     display: "flex",
     alignItems: "center",
+    gap: "10px",
+
+    marginTop: "17px",
   },
   imageBox: {
-    marginRight: "10px",
+    display: "flex",
   },
   textSection: {
     display: "flex",
     flexDirection: "column",
-    marginTop: "17px",
+
     padding: "0",
     "@media (max-width: 1194px)": {
       marginTop: "0",

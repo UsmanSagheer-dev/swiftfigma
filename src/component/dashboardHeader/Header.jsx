@@ -40,7 +40,7 @@ const Style = {
   header: {
     width: { xs: "100%", md: "100%", lg: "100%" },
     height: "auto",
-    backgroundColor: "white",
+    backgroundColor: "transparent",
     flexWrap: "wrap",
     marginRight: "50px",
   },

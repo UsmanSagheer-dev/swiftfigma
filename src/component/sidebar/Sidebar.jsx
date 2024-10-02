@@ -12,7 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { IMAGES } from "../../assets/images/index";
-import {FONTS} from "../constant/Constant"; 
+import { FONTS } from "../constant/Constant";
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -32,7 +32,6 @@ export default function PersistentDrawerLeft() {
 
   return (
     <Box sx={DrawerStyles.container}>
-      {/* Header visible only on small screens */}
       <Box sx={DrawerStyles.header(theme)}>
         <DrawerHeader sx={DrawerStyles.headerTitle}>
           <h1 style={DrawerStyles.logoText}>
@@ -43,8 +42,6 @@ export default function PersistentDrawerLeft() {
           {open ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
       </Box>
-
-      {/* Sidebar Drawer */}
       <Drawer
         sx={DrawerStyles.drawer(theme)}
         variant={isLargeScreen ? "persistent" : "temporary"}
@@ -136,7 +133,7 @@ export default function PersistentDrawerLeft() {
 export const DrawerStyles = {
   container: {
     display: "flex",
-    backgroundColor:'gray',
+    backgroundColor: "gray",
   },
   header: (theme) => ({
     display: { xs: "flex", md: "none" },
@@ -157,7 +154,7 @@ export const DrawerStyles = {
     width: { xs: "190px", md: "150px" },
     flexShrink: 0,
     "& .MuiDrawer-paper": {
-      width:'220px',
+      width: "220px",
       height: { xs: "100vh", md: "100vh" },
       padding: "16px 30px",
       backgroundColor: theme.palette.background.paper,
@@ -167,9 +164,8 @@ export const DrawerStyles = {
       "-ms-overflow-style": "none",
       "scrollbar-width": "none",
       "@media  (max-width:1194px)": {
-width:"190px",
-      }
-      
+        width: "190px",
+      },
     },
   }),
   generalList: {
@@ -177,6 +173,7 @@ width:"190px",
     gap: "16px",
     flexDirection: "column",
     justifyContent: "center",
+    zIndex:0
   },
   sectionTitle: {
     fontSize: "12px",
@@ -214,7 +211,6 @@ width:"190px",
     marginTop: "30px",
   },
   logoutList: {
-
     paddingBottom: "40px",
   },
 };

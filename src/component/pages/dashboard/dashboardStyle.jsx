@@ -10,6 +10,7 @@ export const DashboardStyles = {
     },
     sidebar: {
       backgroundColor: "blue",
+      zIndex:"0",
       // height: { xs: "auto", md: "100vh" },
     },
     contentArea: {
