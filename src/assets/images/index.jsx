@@ -20,6 +20,7 @@ import bowl from './bowl.png'
 import cup from './cup.png'
 import vase from './vase.png'
 import woodenbowl from './wodenbowel.png'
+import Map from './Map.png'
 export const IMAGES = {
     dashboard,
     notification,
@@ -42,7 +43,8 @@ export const IMAGES = {
     bowl,
     cup,
     vase,
-    woodenbowl
+    woodenbowl,
+    Map
 
  
 };

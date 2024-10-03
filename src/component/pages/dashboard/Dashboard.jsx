@@ -10,8 +10,10 @@ import ProducatCard from "../../productsCard/ProducatCard";
 import { DashboardStyles } from "./dashboardStyle";
 import Footer from "../../footer/Footer";
 import NewCustomerCard from "../../newCustomercard/NewCustomerCard";
-import MyComponent from "../../googlemap/googleMap"
-
+import MyComponent from "../../googlemap/googleMap";
+import googleMap from "../../googlemap/googleMap";
+import GoogleMap from "../../googlemap/googleMap";
+import OrderCard from "../../orderCard/OrderCard";
 
 function Dashboard() {
   const theme = useTheme();
@@ -66,9 +68,12 @@ function Dashboard() {
               <ProducatCard heading={"Best Selling Products"} />
             </Box>
           </Box>
-          <Box display={"flex"}>
+          <Box sx={DashboardStyles.second}>
             <Box>
-             <MyComponent/>
+              <NewCustomerCard />
+            </Box>
+            <Box >
+              <OrderCard />
             </Box>
           </Box>
         </Box>

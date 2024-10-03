@@ -19,6 +19,7 @@ export const DashboardStyles = {
       justifyContent: "start",
       marginTop: "50px",
       height: "auto",
+      gap:'21px',
   
       "@media (max-width: 900px)": {
   justifyContent:"center",  
@@ -88,4 +89,10 @@ export const DashboardStyles = {
     producat: {
      
     },
+    second:{
+      width: "100%",
+      display: "flex",
+      gap: "25px",
+      alignItems: "start",
+    }
   };
