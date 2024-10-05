@@ -32,20 +32,22 @@ const style = {
     display: "flex",
     flexDirection: "column",
     alignItems: "start",
+    "@media (max-width: 786px)": {
+    width:"100%",
+    },
   },
   heading: {
     fontSize: "14px",
     fontWeight: "600",
   },
   dividerContainer: {
-    my:"5px",
-    width: "100%", // Ensures full width
+    my: "5px",
+    width: "100%",
     backgroundColor: "white",
   },
   divider: {
     marginTop: "16px",
     marginBottom: "16px",
- 
   },
   map: {
     marginTop: "10px",

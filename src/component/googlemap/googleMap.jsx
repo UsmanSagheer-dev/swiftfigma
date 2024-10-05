@@ -13,6 +13,9 @@ const GoogleMap = () => {
               height: "400px",
               width: "300px",
               background: "#fff",
+              "@media (max-width: 786px)": {
+                width: "100%",
+              },
             }}
           >
             <iframe
@@ -24,6 +27,9 @@ const GoogleMap = () => {
                 height: "400px",
                 position: "relative",
                 zIndex: "2",
+                "@media (max-width: 1194px)": {
+                 width: "100%",
+                },
               }}
               title="Google Map"
             ></iframe>

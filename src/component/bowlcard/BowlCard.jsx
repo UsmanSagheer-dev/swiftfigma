@@ -36,7 +36,7 @@ const styles = {
     borderRadius: "8px",
     // Media query for responsive design
     "@media (max-width: 900px)": {
-   
+      padding: "4px 8px",
     },
   },
   imageContainer: {

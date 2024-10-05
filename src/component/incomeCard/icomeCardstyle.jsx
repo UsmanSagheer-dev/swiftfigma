@@ -21,6 +21,9 @@ export const Styles = {
 
       height: "auto",
     },
+    "@media (max-width: 670px)": {
+      width:'100%'
+    },
     "@media (max-width:570px)": {
       flexDirection: "column",
       width: "90%",
@@ -47,7 +50,7 @@ export const Styles = {
     width: "50%",
     height: "100%",
     "@media (max-width: 900px)": {
-      width: "90%",
+      width: "100%",
     },
   },
 };

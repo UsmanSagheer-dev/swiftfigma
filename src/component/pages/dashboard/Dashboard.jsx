@@ -52,10 +52,10 @@ function Dashboard() {
           <Box sx={DashboardStyles.carddashboard}>
             <Box sx={DashboardStyles.fisrtcard}>
               <Box sx={DashboardStyles.cardsetting}>
-                <Box>
+                <Box sx={DashboardStyles.out}>
                   <OutlinedCard />
                 </Box>
-                <Box overflow={"hidden"} width={"100%"}>
+                <Box  width={"100%"}>
                   <IncomeCard />
                 </Box>
               </Box>
@@ -68,14 +68,14 @@ function Dashboard() {
               <ProducatCard heading={"Best Selling Products"} />
             </Box>
           </Box>
-          <Box sx={DashboardStyles.second}>
+          {/* <Box sx={DashboardStyles.second}>
             <Box>
               <NewCustomerCard />
             </Box>
             <Box >
               <OrderCard />
             </Box>
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </>

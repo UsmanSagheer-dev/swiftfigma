@@ -15,8 +15,9 @@ const styles = {
     borderRadius: "10px",
     border: "0.75px solid #00000020",
 
-    "@media (max-width: 560px)": {
-width: "100%",
+    "@media (max-width: 900px)": {
+
+padding:'8px'
 
     },
   },

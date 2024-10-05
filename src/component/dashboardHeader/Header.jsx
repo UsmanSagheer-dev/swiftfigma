@@ -26,7 +26,7 @@ function Header() {
           </Box>
         </Box>
 
-        <Box sx={{ display: { xs: "none", md: "block" } }}>
+        <Box sx={Style.input}>
           <SearchInput />
         </Box>
       </Box>
@@ -65,7 +65,6 @@ const Style = {
       borderRadius: "50%",
     },
   },
-
   textContainer: {
     display: "flex",
     flexDirection: "column",
@@ -96,4 +95,11 @@ const Style = {
       fontSize: "14px",
     },
   },
+  input: {
+    display: {  md: "block" },
+    "@media (max-width: 720px)": {
+      display: "none",
+    },
+  },
+  
 };

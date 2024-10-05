@@ -9,7 +9,7 @@ const Styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
     textAlign: "center",
     background: "linear-gradient(336.19deg, #D355FF 0%, #9A55FF 57.79%)",
     padding: "24px 16px",
@@ -22,8 +22,8 @@ const Styles = {
     },
     "@media (max-width: 670px)": {
       flexDirection: "row",
-      marginLeft: "11px",
-      width: "100%",
+
+      width: "auto",
       height: "196px",
       gap: "50px",
     },

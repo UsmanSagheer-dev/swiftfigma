@@ -1,6 +1,6 @@
 import { Box, Typography, Pagination, Divider } from "@mui/material";
 import TableComponent from "../socialtable/Socialtable";
-
+import {styles} from '../newCustomercard/newCustomerStyles'
 function NewCustomerCard() {
   const data = [
     {
@@ -9,7 +9,7 @@ function NewCustomerCard() {
       customer: "John Doe",
       status: "Success",
       total: "$100",
-      image: "https://via.placeholder.com/50", // Replace with actual image URL
+      image: "https://via.placeholder.com/50",
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ function NewCustomerCard() {
       customer: "Jane Smith",
       status: "Success",
       total: "$150",
-      image: "https://via.placeholder.com/50", // Replace with actual image URL
+      image: "https://via.placeholder.com/50",
     },
     {
       id: 3,
@@ -25,7 +25,15 @@ function NewCustomerCard() {
       customer: "David Johnson",
       status: "Pending",
       total: "$200",
-      image: "https://via.placeholder.com/50", // Replace with actual image URL
+      image: "https://via.placeholder.com/50",
+    },
+    {
+      id: 4,
+      date: "2024-01-04",
+      customer: "Emily Davis",
+      status: "Pending",
+      total: "$250",
+      image: "https://via.placeholder.com/50",
     },
     {
       id: 3,
@@ -33,23 +41,15 @@ function NewCustomerCard() {
       customer: "David Johnson",
       status: "Pending",
       total: "$200",
-      image: "https://via.placeholder.com/50", // Replace with actual image URL
+      image: "https://via.placeholder.com/50",
     },
     {
-      id: 3,
-      date: "2024-01-03",
-      customer: "David Johnson",
+      id: 4,
+      date: "2024-01-04",
+      customer: "Emily Davis",
       status: "Pending",
-      total: "$200",
-      image: "https://via.placeholder.com/50", // Replace with actual image URL
-    },
-    {
-      id: 3,
-      date: "2024-01-03",
-      customer: "David Johnson",
-      status: "Pending",
-      total: "$200",
-      image: "https://via.placeholder.com/50", // Replace with actual image URL
+      total: "$250",
+      image: "https://via.placeholder.com/50",
     },
   ];
 
@@ -57,39 +57,15 @@ function NewCustomerCard() {
     <Box sx={styles.container}>
       <Box sx={styles.header}>
         <Typography sx={styles.heading}>New Customers</Typography>
-        <Pagination count={5} variant="outlined" shape="rounded" />
+        <Pagination count={5} variant="outlined" shape="rounded" sx={styles.pagination} />
       </Box>
       <Divider />
-      <Box>
+      <Box sx={styles.tableContainer}>
         <TableComponent tableData={data} />
       </Box>
     </Box>
   );
 }
 
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    gap:'15px',
-    backgroundColor: "white",
-    width: "790px",
-    padding: "24px 16px",
-    border: "0.75px solid #00000020",
-
-    borderRadius: "10px",
-  },
-  header: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  heading: {
-    fontSize: "14px",
-    fontWeight: "600",
-  },
-};
 
 export default NewCustomerCard;
